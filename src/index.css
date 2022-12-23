@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Open+Sans:wght@400;700&family=Poppins:wght@400;700&family=Roboto:wght@400;700&display=swap');
+
+:root {
+  --text-primary-menu: #FFFFFF;
+  --text-secondy-section: #000000;
+
+  --bg-primary-menu: #2D28FF;
+  --bg-secondy-section: #C7C7C7;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+a, a:hover {
+  text-decoration: none;
+  color: none;
+}
+
+.container {
+  width: 100%;
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 25px 20px;
+}

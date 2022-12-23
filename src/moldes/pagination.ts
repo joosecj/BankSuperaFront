@@ -1,7 +1,7 @@
-import { TransferenciasDTO } from "./transferencia";
+import { TransferenciaDTO } from "./transferencia";
 
 export type TransferenciaPage = {
-  content: TransferenciasDTO[];
+  content: TransferenciaDTO[];
   last: boolean;
   totalPages: number;
   totalElements: number;

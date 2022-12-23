@@ -1,0 +1,20 @@
+.bk-title-menu-conta {
+  color: var(--text-secondy-section);
+  font-weight: 400;
+}
+
+.bk-active-menu-conta-title {
+  font-weight: 700;
+}
+
+.bk-card-menu-conta {
+  background-color: var(--bg-menu-conta-section);
+  padding: 5px;
+  border-radius: 4px;
+  margin-bottom: 5px;
+}
+
+.bk-conta-content span {
+  margin: 5px;
+}
+

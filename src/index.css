@@ -6,6 +6,7 @@
 
   --bg-primary-menu: #2D28FF;
   --bg-secondy-section: #C7C7C7;
+  --bg-menu-conta-section: #FFFFFF;
 }
 
 * {
@@ -25,4 +26,14 @@ a, a:hover {
   max-width: 960px;
   margin: 0 auto;
   padding: 25px 20px;
+}
+
+.container-menu-conta {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.bk-menu-contas {
+  background-color: var(--bg-secondy-section);
 }

@@ -5,6 +5,8 @@ import * as contaService from '../../../services/conta-service';
 import { useNavigate, useParams } from 'react-router-dom';
 import CardTransacao from '../../../components/CardTransacao';
 import { SaldoTotalPorPeriodoDTO } from '../../../moldes/saldo';
+import Pagination from '../../../components/Pagination';
+import { TransferenciaPage } from '../../../moldes/pagination';
 
 type FormData = {
   firstDate: string;
@@ -16,6 +18,7 @@ type FormData = {
 export default function HomeBody() {
   const navigate = useNavigate();
   const params = useParams();
+  const [pageNumber, setPageNumber] = useState(0);
   const [transacao, setTransacao] = useState<TransferenciaDTO[]>([]);
   const [saldo, setSaldo] = useState<SaldoTotalPorPeriodoDTO>();
   const [formData, setFormData] = useState<FormData>({
@@ -23,6 +26,22 @@ export default function HomeBody() {
     lastDate: '',
     operador: '',
   });
+
+  const [page, setPage] = useState<TransferenciaPage>({
+    content: [],
+    last: true,
+    totalPages: 0,
+    totalElements: 0,
+    size: 10,
+    number: 0,
+    first: true,
+    numberOfElements: 0,
+    empty: true,
+  });
+
+  const handlePageChance = (newPageNumber: number) => {
+    setPageNumber(newPageNumber)
+  }
 
   function handleInputChange(event: any) {
     const value = event.target.value;
@@ -37,19 +56,19 @@ export default function HomeBody() {
   }
 
   useEffect(() => {
-    contaService.buscarTransferenciasPorPeriodoConta(Number(params.contaId), formData.firstDate, formData.lastDate, formData.operador)
+    contaService.buscarTransferenciasPorPeriodoConta(Number(params.contaId), formData.firstDate, formData.lastDate, formData.operador, pageNumber)
       .then(response => {
         setTransacao(response.data.content);
+        setPage(response.data as TransferenciaPage);
       })
       .catch(() => {
         navigate("/");
       });
-  }, [formData, params.contaId])
+  }, [formData, params.contaId, pageNumber])
 
   useEffect(() => {
     contaService.saldoTotalPeriodo(Number(params.contaId), formData.firstDate, formData.lastDate, formData.operador)
       .then(response => {
-        console.log(response);
         setSaldo(response.data);
       })
   }, [formData, params.contaId])
@@ -96,6 +115,8 @@ export default function HomeBody() {
             <CardTransacao transacao={transacao} saldo={saldo} />
           }
         </div>
+
+        <Pagination page={page} onChange={handlePageChance} />
 
       </section>
 

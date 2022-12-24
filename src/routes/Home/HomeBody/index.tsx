@@ -79,24 +79,24 @@ export default function HomeBody() {
       <section className='container-forms'>
         <div className='container'>
           <form className='container-card-form' onSubmit={handleFormSubmit}>
-            <div className='card-input'>
-              <input
+            <div className='card-input mr-bottom'>
+              <input id='inpt'
                 name="firstDate"
                 value={formData.firstDate}
                 type="date"
                 onChange={handleInputChange}
               />
             </div>
-            <div className='card-input'>
-              <input
+            <div className='card-input mr-bottom'>
+              <input id='inpt'
                 name="lastDate"
                 value={formData.lastDate}
                 type="date"
                 onChange={handleInputChange}
               />
             </div>
-            <div className='card-input'>
-              <input
+            <div className='card-input mr-bottom'>
+              <input id='inpt'
                 name="operador"
                 value={formData.operador}
                 type="text"
@@ -104,7 +104,7 @@ export default function HomeBody() {
                 onChange={handleInputChange}
               />
             </div>
-            <button type="submit">Pesquisar</button>
+            <button className='btn-form-send' type="submit">Pesquisar</button>
           </form>
         </div>
       </section>

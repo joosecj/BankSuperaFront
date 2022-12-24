@@ -10,7 +10,7 @@ export default function MenuConta({ conta }: Props) {
   return (
     <div className='bk-card-menu-conta'>
       <NavLink className={({ isActive }) => isActive ? "bk-title-menu-conta bk-active-menu-conta-title" : "bk-title-menu-conta"}
-        to={`${conta.idConta}`}
+        to={`${conta.idConta}/extratos`}
         key={conta.idConta} >
         <div className='bk-conta-content'>
           {conta.idConta} -

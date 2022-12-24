@@ -1,0 +1,51 @@
+.container-card-saldo {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bk-trans-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+.bk-trans-table thead {
+  height: 50px;
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-secondy-section);
+  background-color: var(--bg-primary-menu);
+}
+
+.bk-trans-table tbody {
+  font-size: 14px;
+  font-weight: 400px;
+  color: var(--text-primary-menu);
+  text-align: center;
+}
+
+.bk-trans-table tbody tr {
+  height: 74px;
+  border-top: 1px solid var(--bg-table);
+}
+
+.bk-trans-table tbody tr:hover > th {
+  background-color: var(--bg-table);
+  cursor: pointer;
+}
+
+.bk-trans-table tbody tr {
+  background-color: var(--bg-primary-menu);
+}
+
+.card-saldo {
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.total {
+  color: blue;
+}
+.total-periodo {
+  color:cadetblue;
+}

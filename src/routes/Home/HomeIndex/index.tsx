@@ -2,6 +2,12 @@ import CardGeneric from "../../../components/CardGeneric";
 
 export default function HomeIndex() {
   return (
-    <CardGeneric title="Selecione uma conta"/>
+    <section className="card-home-index">
+      <div className="container">
+        <CardGeneric title="Selecione uma conta" />
+      </div>
+
+    </section>
+
   );
 }

@@ -1,6 +1,5 @@
 import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom"
-import Header from "./components/Header"
-import Home from "./routes/Home/Home"
+import Home from "./routes/Home"
 import HomeBody from "./routes/Home/HomeBody"
 import HomeIndex from "./routes/Home/HomeIndex"
 

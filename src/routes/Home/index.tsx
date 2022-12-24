@@ -23,7 +23,7 @@ export default function Home() {
           <div className="container">
             <div className="container-menu-conta">
               {
-                contas.map((conta) => <MenuConta conta={conta} />
+                contas.map((conta) => <MenuConta key={conta.idConta} conta={conta} />
                 )
               }
             </div>
@@ -31,7 +31,6 @@ export default function Home() {
         </section>
         <Outlet />
       </main>
-
     </>
   );
 

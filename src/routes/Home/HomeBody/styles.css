@@ -1,0 +1,10 @@
+.container-card-form {
+  display: flex;
+  align-content: flex-start;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.card-input input {
+  padding: 3px;
+}

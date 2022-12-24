@@ -9,3 +9,8 @@ export function findAll() {
 export function buscarTransferenciasPorPeriodoConta(id: Number, min: string, max: string, operador: string) {
   return axios.get(`${BASE_URL}/contas/${id}/extratos?minDate=${min}&maxDate=${max}&operador=${operador}`)
 }
+
+
+export function saldoTotalPeriodo(id: Number, min: string, max: string, operador: string) {
+  return axios.get(`${BASE_URL}/contas/${id}/saldo?minDate=${min}&maxDate=${max}&operador=${operador}`)
+}

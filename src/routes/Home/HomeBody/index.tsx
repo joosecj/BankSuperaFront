@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { TransferenciaDTO } from '../../../moldes/transferencia';
 import './styles.css';
 import * as contaService from '../../../services/conta-service';
-import { Outlet, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import CardTransacao from '../../../components/CardTransacao';
+import { SaldoTotalPorPeriodoDTO } from '../../../moldes/saldo';
 
 type FormData = {
   firstDate: string;
@@ -15,6 +16,7 @@ type FormData = {
 export default function HomeBody() {
   const params = useParams();
   const [transacao, setTransacao] = useState<TransferenciaDTO[]>([]);
+  const [saldo, setSaldo] = useState<SaldoTotalPorPeriodoDTO>();
   const [formData, setFormData] = useState<FormData>({
     firstDate: '',
     lastDate: '',
@@ -40,13 +42,21 @@ export default function HomeBody() {
       })
   }, [formData, params.contaId])
 
+  useEffect(() => {
+    contaService.saldoTotalPeriodo(Number(params.contaId), formData.firstDate, formData.lastDate, formData.operador)
+      .then(response => {
+        console.log(response);
+        setSaldo(response.data);
+      })
+  }, [formData, params.contaId])
+
 
   return (
     <>
-      <section>
+      <section className='container-forms'>
         <div className='container'>
-        <form onSubmit={handleFormSubmit}>
-            <div>
+          <form className='container-card-form' onSubmit={handleFormSubmit}>
+            <div className='card-input'>
               <input
                 name="firstDate"
                 value={formData.firstDate}
@@ -54,7 +64,7 @@ export default function HomeBody() {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className='card-input'>
               <input
                 name="lastDate"
                 value={formData.lastDate}
@@ -62,7 +72,7 @@ export default function HomeBody() {
                 onChange={handleInputChange}
               />
             </div>
-            <div>
+            <div className='card-input'>
               <input
                 name="operador"
                 value={formData.operador}
@@ -75,10 +85,15 @@ export default function HomeBody() {
           </form>
         </div>
       </section>
-      <Outlet />
+      <section className='container-transacao'>
+        <div className='container'>
+          {
+            saldo &&
+            <CardTransacao transacao={transacao} saldo={saldo} />
+          }
+        </div>
 
-      <CardTransacao transacao={transacao} />
-
+      </section>
 
     </>
   );

@@ -4,9 +4,10 @@
   --text-primary-menu: #FFFFFF;
   --text-secondy-section: #000000;
 
-  --bg-primary-menu: #2D28FF;
+  --bg-primary-menu: #384459;
   --bg-secondy-section: #C7C7C7;
   --bg-menu-conta-section: #FFFFFF;
+  --bg-table: #aca4a4;
 }
 
 * {
@@ -16,7 +17,8 @@
   font-family: 'Inter', sans-serif;
 }
 
-a, a:hover {
+a,
+a:hover {
   text-decoration: none;
   color: none;
 }
@@ -34,6 +36,11 @@ a, a:hover {
   flex-wrap: wrap;
 }
 
-.bk-menu-contas {
+
+.container-forms, .container-transacao, .bk-menu-contas {
   background-color: var(--bg-secondy-section);
+}
+
+.mr-bottom {
+  margin-bottom: 10px;
 }

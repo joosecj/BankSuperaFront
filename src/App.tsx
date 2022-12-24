@@ -11,10 +11,9 @@ function App() {
         <Route path='/' element={<Home />} >
           <Route index element={<Navigate to="/home" />} />
           <Route path="home" element={<HomeIndex />} />
-          
           <Route path=':contaId/extratos' element={<HomeBody />} />
-         
         </Route>
+        <Route path="*" element={<Navigate to="home"/>} />
       </Routes>
     </BrowserRouter>
   )

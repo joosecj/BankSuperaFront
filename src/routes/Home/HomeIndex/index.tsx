@@ -1,4 +1,5 @@
 import CardGeneric from "../../../components/CardGeneric";
+import './styles.css';
 
 export default function HomeIndex() {
   return (

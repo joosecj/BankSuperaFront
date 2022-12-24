@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { TransferenciaDTO } from '../../../moldes/transferencia';
 import './styles.css';
 import * as contaService from '../../../services/conta-service';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import CardTransacao from '../../../components/CardTransacao';
 import { SaldoTotalPorPeriodoDTO } from '../../../moldes/saldo';
 
@@ -14,6 +14,7 @@ type FormData = {
 
 
 export default function HomeBody() {
+  const navigate = useNavigate();
   const params = useParams();
   const [transacao, setTransacao] = useState<TransferenciaDTO[]>([]);
   const [saldo, setSaldo] = useState<SaldoTotalPorPeriodoDTO>();
@@ -40,6 +41,9 @@ export default function HomeBody() {
       .then(response => {
         setTransacao(response.data.content);
       })
+      .catch(() => {
+        navigate("/");
+      });
   }, [formData, params.contaId])
 
   useEffect(() => {
